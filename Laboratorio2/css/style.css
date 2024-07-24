@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #e6e6e6;
+}
+
+header, .main, footer{
+    background: #fff;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+header nav{
+    background: #528FD5;
+}
+
+header nav ul{    
+    list-style: none;
+}
+
+header nav ul li {
+    float: left;
+}
+
+header nav ul li a {
+    padding: 10px 20px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+
+.main .articles {
+    width: 70%;
+    float: left;
+    background: #fff;
+}
+
+aside {
+    width: 30%;
+    background: #ff8000;
+    float: right;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+footer {
+    background: #000;
+    color: #fff;
+    clear: both;
+}
