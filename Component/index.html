@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component</title>
+    <style>
+        picture {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 100px;
+        }
+        img {
+            box-shadow: 0 0 15px #999;
+            border-radius: 250px;
+            width: 100px;
+        }
+        img.disabled {
+            opacity: .3;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script>
+        const $app = document.getElementById('app');
+        const avatar = params => {
+            const src = `https://randomuser.me/api/portraits/women/${params.id}.jpg`;
+            return `<picture>
+            <img src="${src}" alt="">
+            ${params.name}
+            </picture>`
+        }
+
+        $app.innerHTML += avatar({id:1,name:'Monica'})
+        $app.innerHTML += avatar({id:2,name:'Veronica'})
+        $app.innerHTML += avatar({id:3,name:'Lucero'})
+
+        $app.querySelectorAll('img').forEach(img => {
+            img.addEventListener('click', () => {
+                img.classList.toggle('disabled')
+            })
+        })
+    </script>
+</body>
+</html>
