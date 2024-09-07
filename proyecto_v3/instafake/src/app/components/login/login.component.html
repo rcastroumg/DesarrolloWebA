@@ -1,0 +1,26 @@
+<div id="fullscreen_bg" class="fullscreen_bg">
+    <div class="container">
+
+        <form class="form-signin" (ngSubmit)="onSubmit(form1)" #form1="ngForm">
+            <img src="../../../assets/svg/ios-lock.svg" alt="" class="svg">
+            <h1 class="form-signin-heading text-white">Inicia sesión</h1>
+            <input type="text" name="email" class="form-control" placeholder="Usuario" required="" autofocus=""
+                [(ngModel)]="login.email" #email="ngModel">
+            <input type="password" name="password" class="form-control" placeholder="Contraseña" required=""
+                [(ngModel)]="login.password" #password="ngModel">
+            <input class="btn btn-lg btn-dark btn-block" type="submit" name="submit" [disabled]="form1.invalid">
+
+        </form>
+        <div class="recover">
+            <a [routerLink]="['/recover-pass']" routerLinkActive="router-link-active">¿Has olvidado tu contraseña?</a>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorLogin.mensaje.length != 0">
+            <button type="button" class="close" (click)="errorLogin.mensaje = ''" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="alert-heading">Error!</h4>
+            <hr>
+            <p>{{ errorLogin.mensaje }}</p>
+        </div>
+    </div>
+</div>
