@@ -7,4 +7,4 @@ router.get("/prueba-publication", PublicationController.pruebaPublication);
 
 //exportar router
 
-module.export = router;
+module.exports = router;

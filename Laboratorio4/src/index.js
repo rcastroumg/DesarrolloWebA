@@ -23,13 +23,13 @@ app.use(express.urlencoded({extended:true}));
 
 
 //Cartar conf rutas
-//const UserRoutes = require("./routes/user.js");
-//const PublicationRoutes = require("./routes/publication.js");
-//const FollowRoutes = require("./routes/follow.js");
+const UserRoutes = require("./routes/user.js");
+const PublicationRoutes = require("./routes/publication.js");
+const FollowRoutes = require("./routes/follow.js");
 
-//app.use("/api", UserRoutes);
-//app.use("/api", PublicationRoutes);
-//app.use("/api", FollowRoutes);
+app.use("/api/user", UserRoutes);
+app.use("/api/user", PublicationRoutes);
+app.use("/api/user", FollowRoutes);
 
 
 //Ruta de prueba

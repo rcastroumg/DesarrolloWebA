@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const FollowController = require("../controllers/follow");
+//const FollowController = require("../controllers/follow");
 
 //Definir rutas
-router.get("/prueba-follow", FollowController.pruebaFollows);
+//router.get("/prueba-follow", FollowController.pruebaFollows);
 
 //exportar router
 
-module.export = router;
+module.exports = router;
