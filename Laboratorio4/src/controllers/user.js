@@ -1,5 +1,6 @@
 // Importar dependencias
 const bcrypt = require("bcrypt");
+const mongoosePainate = require("mongoose-paginate-v2");
 
 
 //Importar modelos
@@ -140,8 +141,90 @@ const login = async (req, res) => {
     }
 };
 
+const profile = async (req, res) => {
+    try {
+        // Recibir el parámetro del id de usuario por la URL
+        const id = req.params.id;
+
+        // Consulta para obtener los datos del usuario, excluyendo password y role
+        const userProfile = await User.findById(id)
+            .select({ password: 0, role: 0, email: 0 })
+            .exec();
+
+        if (!userProfile) {
+            return res.status(404).send({
+                status: "error",
+                message: "El usuario no existe"
+            });
+        }
+
+        // Devolver la información del usuario
+        return res.status(200).send({
+            status: "success",
+            user: userProfile
+        });
+
+    } catch (error) {
+        return res.status(500).send({
+            status: "error",
+            message: "Error al obtener el perfil",
+            error: error.message
+        });
+    }
+};
+
+
+const list = (req, res) => { 
+    // Controlar en qué página estamos
+    let page = req.params.page ? parseInt(req.params.page) : 1;
+
+    // Número de elementos por página
+    const itemsPerPage = 3;
+
+    // Opciones de paginación
+    const options = {
+        page: page,
+        limit: itemsPerPage,
+        sort: { _id: 1 }
+    };
+
+    // Realizar paginación
+    User.paginate({}, options)
+        .then((users) => {
+            if (!users || users.docs.length === 0) {
+                return res.status(404).send({
+                    status: "error",
+                    message: "No hay usuarios disponibles"
+                });
+            }
+
+            // Devolver el resultado
+            return res.status(200).send({
+                status: "success",
+                users: users.docs,
+                totalDocs: users.totalDocs,
+                totalPages: users.totalPages,
+                currentPage: users.page,
+                itemsPerPage: users.limit,
+                hasNextPage: users.hasNextPage,
+                hasPrevPage: users.hasPrevPage,
+                nextPage: users.nextPage,
+                prevPage: users.prevPage
+            });
+        })
+        .catch((error) => {
+            return res.status(500).send({
+                status: "error",
+                message: "Error en la consulta de usuarios",
+                error: error.message
+            });
+        });
+};
+
 module.exports = {
     pruebaUser,
     register,
-    login
+    login,
+    profile,
+    list
 };
