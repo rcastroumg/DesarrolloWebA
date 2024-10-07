@@ -8,6 +8,17 @@ Content-Type: application/json
 }
 
 
+### post - Registrar usuario rcastrom
+POST http://localhost:4000/api/user/register
+Content-Type: application/json
+
+{
+  "name":"Roberto Castro",
+  "email":"rcastrom@miumg.edu.gt",
+  "password":"123456",
+  "nick":"rcastro"
+}
+
 ### post - Registrar usuario
 POST http://localhost:4000/api/user/register
 Content-Type: application/json
@@ -20,8 +31,8 @@ Content-Type: application/json
 }
 
 ### get - Obtener perfil
-GET http://localhost:4000/api/user/profile/66f720d81b6469ee991dac42 HTTP/1.1
+GET http://localhost:4000/api/user/profile/67045dab8be33474d96751ed HTTP/1.1
 
 
 ### get - Obtener listado de usuarios por pagina
-GET http://localhost:4000/api/user/list/3
+GET http://localhost:4000/api/user/list/1
