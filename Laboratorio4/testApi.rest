@@ -37,3 +37,30 @@ Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3MDQ1ZGFiOGJlMzM0
 ### get - Obtener listado de usuarios por pagina
 GET http://localhost:4000/api/user/list/1
 Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3MDQ1ZGFiOGJlMzM0NzRkOTY3NTFlZCIsIm5hbWUiOiJSb2JlcnRvIENhc3RybyIsIm5pY2siOiJyY2FzdHJvIiwiZW1haWwiOiJyY2FzdHJvbUBtaXVtZy5lZHUuZ3QiLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2UiOiJkZWZhdWx0LnBuZyIsImlhdCI6MTcyOTAyNzYzMiwiZXhwIjoxNzMxNjE5NjMyfQ.d-Ep10ggC_AcYUYhDuryk85fGRx78oNblsVjhHVZXa8
+
+
+### put - Actualizar usuario
+PUT http://localhost:4000/api/user/update
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3MDQ1ZGFiOGJlMzM0NzRkOTY3NTFlZCIsIm5hbWUiOiJSb2JlcnRvIENhc3RybyIsIm5pY2siOiJyY2FzdHJvIiwiZW1haWwiOiJyY2FzdHJvbUBtaXVtZy5lZHUuZ3QiLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2UiOiJkZWZhdWx0LnBuZyIsImlhdCI6MTcyOTAyNzYzMiwiZXhwIjoxNzMxNjE5NjMyfQ.d-Ep10ggC_AcYUYhDuryk85fGRx78oNblsVjhHVZXa8
+
+{
+  "name":"Roberto Antonio Castro",
+  "email":"rcastrom@miumg.edu.gt",
+  "password":"123456",
+  "nick":"rcastro03"
+}
+
+
+### put - Actualizar usuario
+POST http://localhost:4000/api/user/upload
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3MDQ1ZGFiOGJlMzM0NzRkOTY3NTFlZCIsIm5hbWUiOiJSb2JlcnRvIENhc3RybyIsIm5pY2siOiJyY2FzdHJvIiwiZW1haWwiOiJyY2FzdHJvbUBtaXVtZy5lZHUuZ3QiLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2UiOiJkZWZhdWx0LnBuZyIsImlhdCI6MTcyOTAyNzYzMiwiZXhwIjoxNzMxNjE5NjMyfQ.d-Ep10ggC_AcYUYhDuryk85fGRx78oNblsVjhHVZXa8
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file0"; filename="Captura.PNG"
+Content-Type: image/png
+
+< ~/Captura.PNG
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
